@@ -1,38 +1,653 @@
-.App {
-  text-align: center;
+*{
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* background-color: white; */
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.navbar{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(21, 20, 20);
+  position:fixed;
+  z-index: 5;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.dropdown-menu{
+  display: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.fotoNavbar{
+  width: 35px;
+  height: 30px;
+}
+
+.name{
+  color: rgb(255, 255, 0);
+  font-size: 15px;
+  letter-spacing: 5px;
+}
+
+.li{
+  color: #f5f6f7;
+  list-style: none;
+  display: inline-block;
+  margin-right: 25px;
+  position: relative;
+  font-size: 13px;
+}
+
+.li:hover{
+  color: white;
+  font-weight: 900;
+}
+
+
+.li::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2.2px;
+  bottom: 0;
+  left: 0;
+  background-color:  rgb(255, 255, 0);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.2s ease-out;
+}
+
+.li:hover::after{
+  transform: scaleX(1);
+  transform-origin: bottom left;
+} 
+
+
+
+
+/* Home */
+
+.home{
+  width: 100%;
+  height: 700px;
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  grid-template-rows: repeat(13, 1fr);
+  background-color: rgb(21, 20, 20);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.information{
+  display: grid;
+  grid-row: 5/9;
+  grid-column: 4/8;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.information .greeting{
+  font-size: 13px;
+  color:  rgb(255, 255, 0);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.information .nameHome{
+  font-size: 35px;
+}
+
+.information .description{
+  font-size: 18px;
+}
+
+.information .welcome{
+  font-size: 13px;
+}
+
+/* Animation writing for description */
+
+.machineWrite{
+  position: relative;
+}
+
+.machineWrite::after{
+  content: "";
+  background-color: rgb(21, 20, 20);
+  border-left: 1px solid white;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  animation: machinewrite 3.5s infinite alternate steps(22);
+}
+
+@keyframes machinewrite {
+  from{
+    width: 100%;
   }
-  to {
-    transform: rotate(360deg);
+  to{
+    width: 0;
+  }
+}
+
+/* */
+
+.logoHome{
+  display: grid;
+  grid-column: 8/12;
+  grid-row: 4/9;
+}
+
+.photo{
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid  rgb(172, 172, 47);
+  box-shadow:
+    inset 0 0 60px rgb(245, 245, 245),
+    0 0 15px #f2ff02
+}
+
+
+/* About */
+.sec1{
+  width: 100%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(21, 20, 20);
+  
+}
+
+.aboutMe{
+  width: 850px;
+  height: 350px;
+  border: 3px solid rgb(55, 54, 54);
+  border-radius: 7px;
+  background-color: rgb(38, 37, 37);
+
+}
+
+
+.text{
+  width: 100%;
+  height: 50px;
+  color: white;
+  font-size: 12px;
+  display: flex;
+  align-items: end;
+  padding-left: 30px;
+}
+
+.i-b{
+  display: flex;
+}
+
+.imagen{
+  width: 40%;
+  height: 295px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagen img{
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+
+}
+
+.bibliography{
+  width: 60%;
+  height: 295px;
+  color: white;
+  font-size: 15px;
+  padding-top: 50px;
+  padding-right: 30px;
+}
+
+/* skill */
+
+.skill{
+  width: 100%;
+  height: 490px;
+  background-color: rgb(21, 20, 20);
+  display: flex;
+  justify-content: center;
+}
+
+.nameSkill{
+  width: 850px;
+  height: 300px;
+}
+
+span{
+  display: inline-block;
+}
+
+button{
+  width: 150px;
+  height: 50px;
+  background-color: rgb(21, 20, 20);
+  border: 0.5px solid #c9c600;
+  border-radius: 3px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+button:hover{
+  background-color: #ffb70016;
+}
+
+button img{
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+
+}
+
+
+.group1, .group2{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.nameSkill h2{
+  color: white;
+  font-size: 30px;
+}
+
+/* portfolio */
+
+.Portfolio{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(21, 20, 20);
+  flex-wrap: wrap;
+}
+
+.Experience{
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+
+.container-projects{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+
+  
+}
+
+.proyectos1{
+  width: 950px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;  
+  flex-wrap: wrap;
+  padding: 2px;
+  gap: 25px;
+}
+
+.proyectos2{
+  width: 950px;
+  height: 520px;
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 2px;
+
+}
+
+/* cv */
+
+/* .Cv{
+  width: 100%;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(21, 20, 20);
+  border: solid red;
+}
+
+.container-cv{
+  width: 500px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(38, 37, 37);
+  border: 3px solid rgb(55, 54, 54);
+  color: white;
+} */
+
+
+/* footer */
+
+.Footer{
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  background:linear-gradient(to bottom,rgb(21, 20, 20), rgb(38, 37, 37)) ;
+}
+
+
+.c-name{
+  font-size: 20px;
+}
+
+.esp{
+  margin-bottom: 10px;
+}
+
+
+@media screen and ( max-width: 900px ) {
+  .home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+  }
+  
+  .photo{
+    width: 220px;
+    height: 80%;
+  }
+
+  .information .nameHome{
+    font-size: 30px;
+  }
+
+  .aboutMe{
+    width: 90%;
+  }
+
+  .imagen img{
+    width: 200px;
+    height: 200px;
+  }
+
+  .bibliography{
+    font-size: 14px;
+  }
+
+  .nameSkill{
+    width: 90%;
+  }
+
+  .proyectos1{
+    height: 800px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+  }
+}
+
+
+@media screen and ( max-width: 774px ) {
+  
+  .home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .information .nameHome{
+    font-size: 25px;
+  }
+  .information .cv{
+    font-size: 18px;
+  }
+  .proyectos1{
+    height: 750px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .proyectos2{
+    height: 500px;
+  }
+
+  .photo{
+    width: 170px;
+    height: 170px;
+  }
+
+  .logoHome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .information{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+  }
+
+
+}
+
+@media screen and (max-width: 669px) {
+  .home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .bibliography{
+    font-size: 13px;
+  }
+
+  .imagen img{
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media screen and (max-width: 604px){
+  
+  .navbar{
+    display: none;
+  }
+
+  .dropdown-menu{
+    display: block;
+  }
+
+  .photo{
+    width: 170px;
+    height: 170px;
+  }
+
+  .home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .logoHome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .information .nameHome{
+    font-size: 25px;
+  }
+  .greeting{
+    font-size: 10px;
+  }
+
+  .welcome{
+    font-size: 10px;
+  }
+
+  .machineWrite{
+    font-size: 15px;
+  }
+
+  .imagen img{
+    width: 180px;
+    height: 180px;
+  }
+
+  .bibliography{
+    font-size: 12px;
+  }
+
+
+  .proyectos1{
+    height: 1250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .proyectos2{
+    height: 990px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-right: 32px;
+    gap: 40px;
+  }
+
+  .Footer{
+    display: flex;
+    flex-direction: column;
+    height: 800px;
+    justify-content: space-evenly;
+  }
+}
+
+@media screen and (max-width: 557px){
+ 
+  .home{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+     gap: 20px;
+
+  }
+
+  .photo{
+    width: 160px;
+    height: 160px;
+  }
+  .machineWrite{
+    font-size: 12px;
+  }
+  .cv{
+    font-size: 18px;
+  }
+  .welcome{
+    font-size: 12px;
+  }
+
+  .bibliography{
+    font-size: 10px;
+  }
+
+  .imagen img{
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width:491px){
+  
+  .home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .aboutMe{
+    height: 300px;
+  }
+ 
+  .imagen{
+    height: 210px;
+    
+  }
+
+  .imagen img{
+    width: 130px;
+    height: 130px;
+  }
+
+  .bibliography{
+    font-size: 10px;
+    height: auto;
+    padding-top: 10px;
+  }
+
+  .cv{
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 435px){
+  .information .nameHome{
+    font-size: 25px;
+  }
+}
+
+
+@media screen and (max-width:418px){
+  
+  .information {
+    margin-left: 5px;
+  }
+
+  .aboutMe{
+    height: 300px;
+  }
+ 
+  .imagen{
+    height: 210px;
+  }
+
+  .imagen img{
+    width: 110px;
+    height: 110px;
+  }
+
+  .bibliography{
+    font-size: 9px;
+    height: auto;
+    padding-top: 10px;
   }
 }
